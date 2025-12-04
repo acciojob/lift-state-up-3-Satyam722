@@ -4,30 +4,19 @@ import ChildComponent2 from './ChildComponent2';
 import './../styles/App.css';
 
 function App() {
-  // State as per requirements
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
 
-  // Handler to update state from child components
-  const handleOptionSelect = (option) => {
+  const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
 
   return (
-    <div id="main">
-      <h1>Parent Component</h1>
-      <p>Selected Option: <strong>{selectedOption || "None"}</strong></p>
+    <div id="main" className="parent">
+      <h2>Parent Component</h2>
+      <p id="selectedOption">Selected Option: {selectedOption}</p>
       
-      <div className="child-container">
-        <ChildComponent1 
-          onOptionSelect={handleOptionSelect} 
-          selectedOption={selectedOption}
-        />
-        
-        <ChildComponent2 
-          onOptionSelect={handleOptionSelect} 
-          selectedOption={selectedOption}
-        />
-      </div>
+      <ChildComponent1 onButtonClick={handleOptionChange} />
+      <ChildComponent2 onButtonClick={handleOptionChange} />
     </div>
   );
 }

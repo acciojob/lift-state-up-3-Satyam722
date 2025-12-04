@@ -1,13 +1,10 @@
-import React from 'react';
-
-const ChildComponent1 = ({ setSelectedOption }) => {
+import React from "react";
+const ChildComponent1 = ({ onSelect }) => {
   return (
-    <div>
-      <button onClick={() => setSelectedOption('Option 1')}>
+    <div className="child child1">
+      <h2>Child Component 1</h2>
+      <button className="btn" onClick={() => onSelect("Option 1")}>
         Option 1
-      </button>
-      <button onClick={() => setSelectedOption('Option 2')}>
-        Option 2  
       </button>
     </div>
   );

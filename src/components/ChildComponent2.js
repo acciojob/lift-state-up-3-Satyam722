@@ -1,22 +1,15 @@
 import React from 'react';
 
-const ChildComponent2 = ({ onOptionSelect, selectedOption }) => {
-  const options = ["Option 2A", "Option 2B", "Option 2C"];
+const ChildComponent2 = (props) => {
+  const handleClick = (option) => {
+    props.onButtonClick(option);
+  };
 
   return (
-    <div className="child-component">
-      <h2>Child Component 2</h2>
-      <div className="button-group">
-        {options.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => onOptionSelect(option)}
-            className={selectedOption === option ? 'selected' : ''}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
+    <div id="child2">
+      <h3>Child Component 2</h3>
+      <button onClick={() => handleClick('Option A')}>Option A</button>
+      <button onClick={() => handleClick('Option B')}>Option B</button>
     </div>
   );
 };

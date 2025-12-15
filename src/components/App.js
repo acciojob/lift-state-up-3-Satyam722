@@ -1,22 +1,21 @@
-import React, { useState } from "react";
-import './../styles/App.css';
-import ChildComponent1 from './ChildComponents1'
-import ChildComponent2 from './ChildComponent2'
-
-const App = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-
-  return (
-    <div className="parent">
+import React, { useState } from "react"
+import ChildComponent1 from "./ChildComponent1";
+import ChildComponent2 from "./ChildComponent2";
+function App(){
+  const [selectedOption, setSelectedOption]=useState("");
+  const handleOptionSelect=(option)=>{
+    setSelectedOption(option)
+  }
+  return(
+    <div style={{backgroundColor:"green"}}>
       <h1>Parent Component</h1>
+<ChildComponent1 onSelect={handleOptionSelect} />
+<ChildComponent2 onSelect={handleOptionSelect}/>
 
-      
-      <ChildComponent1 onSelect={setSelectedOption} />
-      <ChildComponent2 onSelect={setSelectedOption} />
+  <p>Selected Option: {selectedOption || ""}</p>
 
-      <p>Selected Option: {selectedOption}</p>
     </div>
-  );
-};
+  )
+}
 
-export default App
+export default App;

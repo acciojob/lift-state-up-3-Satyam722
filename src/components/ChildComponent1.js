@@ -1,13 +1,13 @@
 import React from "react";
-const ChildComponent1 = ({ onSelect }) => {
-  return (
-    <div className="child child1">
-      <h2>Child Component 1</h2>
-      <button className="btn" onClick={() => onSelect("Option 1")}>
-        Option 1
-      </button>
-    </div>
-  );
-};
+
+function ChildComponent1({onSelect}){
+    return(
+        <div style={{width:"500px",height:"100px", backgroundColor:"red"}}>
+            <h2>Child Component 1</h2>
+
+          <button onClick={()=>onSelect("Option 1")}>Option1</button>
+        </div>
+    )
+}
 
 export default ChildComponent1;
